@@ -125,9 +125,13 @@ The ML system is based on Isolation Forest:
 - Error rate
 - Latency
 
-### Output:
-- `1` → Normal behavior
-- `-1` → Anomalous behavior
+### 📈 Output
+- Console output from the consumer service:
+![AIOps_Output](./assets/aiops_output.png)
+
+Interpretation:
+- 1 = Normal
+- -1 = Anomaly
 
 ---
 
@@ -171,13 +175,14 @@ An alert is triggered when:
 
 ### 1. Clone Repository
 ```bash
-git clone <repo-url>
-cd aiops-streaming-ml-project
+git clone https://github.com/balusena/aiops-end-to-end-platform.git
+cd aiops-end-to-end-platform
 ```
 
 ### 2. Start System
 ```bash
-docker-compose -f infra/docker-compose.yml up --build
+docker compose -f infra/docker-compose.yml up --build -d
+docker compose logs -f consumer
 ```
 
 ### 3. Access Services
@@ -186,6 +191,16 @@ docker-compose -f infra/docker-compose.yml up --build
 - Grafana → http://localhost:3000 
 - Jaeger → http://localhost:16686
 - Metrics API → http://localhost:8000
+
+---
+
+## 🔐 Environment Variables
+
+The following environment variables are used by the consumer service:
+
+- `SLACK_WEBHOOK_URL` → Slack alert integration
+- `PAGERDUTY_ROUTING_KEY` → PagerDuty routing key
+- `METRICS_PORT` → Prometheus metrics port (default: 8000)
 
 ---
 
@@ -265,7 +280,7 @@ Thank you for your support!
 ### Bala Senapathi
 DevSecOps Engineer | Cloud & Automation | MLOps | AIOps | GitOps Specialist
 
-![Author Image](https://github.com/balusena/aws-devsecops-end-to-end-platform/blob/main/banner.png)
+![Author Image](./assets/banner.png)
 
 ---
 Made with ❤️ and passion to contribute to the DevSecOps community by [Bala Senapathi](https://github.com/balusena)
