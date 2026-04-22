@@ -12,7 +12,7 @@ Overall, the project demonstrates a production-like AIOps pipeline combining str
 
 ## 📊 Architecture Diagram
 
-![AIOps_Architecture](./assets/aiops_architecture.jpg).
+![AIOps_Architecture](./assets/aiops_architecture.jpg)
 
 ---
 
@@ -183,7 +183,7 @@ docker-compose -f infra/docker-compose.yml up --build
 ### 3. Access Services
 - Kafka → localhost:9092
 - Prometheus → http://localhost:9090
-- Grafana → http://localhost:3000 (if enabled)
+- Grafana → http://localhost:3000 
 - Jaeger → http://localhost:16686
 - Metrics API → http://localhost:8000
 
