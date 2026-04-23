@@ -10,6 +10,50 @@ Overall, the project demonstrates a production-like AIOps pipeline combining str
 
 ---
 
+## 📂 Project Structure
+
+```text
+aiops-streaming-ml-project/
+│
+├── services/
+│   │
+│   ├── producer/                     # Simulates real-world service telemetry
+│   │   ├── producer.py               # Generates fake service metrics and sends to Kafka
+│   │   ├── Dockerfile                # Container setup for producer service
+│   │   └── requirements.txt          # Python dependencies for producer
+│   │
+│   ├── consumer/                     # Core AIOps streaming + ML system
+│   │   ├── app.py                    # Main pipeline: Kafka → ML → alerts
+│   │   ├── state.py                  # Sliding window for feature engineering
+│   │   ├── ml.py                     # Isolation Forest anomaly detection
+│   │   ├── alerts.py                 # Slack + PagerDuty alerts
+│   │   ├── otel.py                   # OpenTelemetry tracing
+│   │   ├── metrics.py                # Prometheus metrics
+│   │   ├── __init__.py               # empty file
+│   │   ├── Dockerfile                # Container setup
+│   │   └── requirements.txt          # Dependencies
+│
+├── infra/                            # Infrastructure config (Docker + OTel)
+│   ├── docker-compose.yml            # Main orchestration file
+│   └── otel-collector.yaml           # OTel → Jaeger config
+│
+├── monitoring/                       # Observability
+│   ├── prometheus.yml                # Metrics scraping config
+│   └── grafana_dashboard.json        # Dashboard definition
+│
+├── tracing/                          # Optional standalone configs
+│   └── jaeger-config.yaml
+│
+├── models/                           # (future use) ML model storage
+│
+├── docs/
+│   └── architecture.png              # System diagram (very useful for portfolio)
+│
+└── README.md                         # Project explanation
+```
+
+---
+
 ## 📊 Architecture Diagram
 
 ![AIOps_Architecture](./assets/aiops_architecture.jpg)
