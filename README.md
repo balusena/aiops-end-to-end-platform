@@ -252,6 +252,10 @@ The following environment variables are used by the consumer service:
 
 ![Producer Consumer](./assets/producer_consumer.png)
 
+## Prometheus exposing metrics Total events per service, Total anomalies per service, Error rate per service
+
+![Prometheus](./assets/prometheus.png)
+
 ---
 
 ## 🧪 Future Improvements
