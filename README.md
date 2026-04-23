@@ -264,6 +264,10 @@ The following environment variables are used by the consumer service:
 
 ![Jaeger](./assets/jaeger.png)
 
+## 📈 Slack and PagerDuty receiving alerts when anomalies ans error_rate > 0.2
+
+![Slack and PagerDuty](./assets/slack_pager-duty.png)
+
 ---
 
 ## 🧪 Future Improvements
