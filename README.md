@@ -252,19 +252,23 @@ The following environment variables are used by the consumer service:
 
 ![Producer Consumer](./assets/producer_consumer.png)
 
+
 ## 📈 Prometheus exposing metrics Total events per service, Total anomalies per service, Error rate per service
 
 ![Prometheus](./assets/prometheus.png)
+
 
 ## 📈 Grafana dashboard showing Events, Error Rate, Anomalies
 
 ![Grafana](./assets/grafana.png)
 
+
 ## 📈 Jaeger showing End-to-end aiops-pipeline request flow, feature-engineering latency, ml-inference latency, alerting pipeline traces
 
 ![Jaeger](./assets/jaeger.png)
 
-## 📈 Slack and PagerDuty receiving alerts when anomalies ans error_rate > 0.2
+
+## 📈 Slack and PagerDuty receiving alerts when anomalies and error_rate > 0.2
 
 ![Slack and PagerDuty](./assets/slack_pager-duty.png)
 
