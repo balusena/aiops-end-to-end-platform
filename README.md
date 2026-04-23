@@ -256,6 +256,12 @@ The following environment variables are used by the consumer service:
 
 ![Prometheus](./assets/prometheus.png)
 
+## 📈 Grafana dashboard showing Events, Error Rate, Anomalies
+
+![Grafana](./assets/grafana.png)
+
+
+
 ---
 
 ## 🧪 Future Improvements
