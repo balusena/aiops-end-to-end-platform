@@ -260,7 +260,7 @@ The following environment variables are used by the consumer service:
 
 ![Grafana](./assets/grafana.png)
 
-### Jaeger showing traces of End-to-end aiops-pipeline request flow, Feature engineering latency, ML inference latency, Alerting pipeline trace
+## 📈 Jaeger showing traces of End-to-end aiops-pipeline request flow, Feature engineering latency, ML inference latency, Alerting pipeline trace
 
 ![Jaeger](./assets/jaeger.png)
 
