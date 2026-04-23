@@ -46,8 +46,8 @@ aiops-end-to-end-platform/
 │
 ├── models/                           # (future use) ML model storage
 │
-├── docs/
-│   └── architecture.png              # System diagram (very useful for portfolio)
+├── assets/
+│   └── aiops_architecture.png        # System diagram (very useful for portfolio)
 │
 └── README.md                         # Project explanation
 ```
