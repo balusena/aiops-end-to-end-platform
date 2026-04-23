@@ -8,6 +8,18 @@ The Producer service generates synthetic microservice metrics such as CPU usage,
 
 Overall, the project demonstrates a production-like AIOps pipeline combining streaming, machine learning, alerting, and observability.
 
+### 🔥 What it does
+- Streams real-time service metrics via Kafka
+- Detects anomalies using Isolation Forest (per service)
+- Triggers alerts to Slack & PagerDuty
+- Provides full observability via Prometheus, Grafana, and Jaeger
+
+### 🧠 Why it matters
+Modern systems generate massive telemetry. This project shows how to:
+- Detect issues before outages occur
+- Reduce alert noise using ML
+- Combine metrics, tracing, and alerting in one pipeline
+
 ---
 
 ## 📂 Project Structure
