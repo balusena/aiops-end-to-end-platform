@@ -248,16 +248,6 @@ The following environment variables are used by the consumer service:
 
 ---
 
-## 📁 Project Structure
-- services/producer → Generates telemetry events
-- services/consumer → AIOps ML pipeline
-- infra → Kafka + OpenTelemetry + Jaeger setup
-- monitoring → Prometheus + Grafana configuration
-- tracing → Jaeger configuration
-- docs → Architecture diagram
-
----
-
 ## 🧪 Future Improvements
 - Replace Isolation Forest with LSTM / Transformer-based anomaly detection
 - Add schema validation using Avro or Protobuf
