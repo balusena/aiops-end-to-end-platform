@@ -13,7 +13,7 @@ Overall, the project demonstrates a production-like AIOps pipeline combining str
 ## 📂 Project Structure
 
 ```text
-aiops-streaming-ml-project/
+aiops-end-to-end-platform/
 │
 ├── services/
 │   │
