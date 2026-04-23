@@ -1,0 +1,99 @@
+version: "3.8"
+
+services:
+
+  kafka:
+    image: bitnami/kafka:3.6
+    container_name: kafka
+    ports:
+      - "9092:9092"
+
+    environment:
+      # KRaft mode
+      KAFKA_CFG_NODE_ID: 1
+      KAFKA_CFG_PROCESS_ROLES: broker,controller
+      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+
+      # listeners
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
+
+      ALLOW_PLAINTEXT_LISTENER: "yes"
+
+      KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE: "true"
+
+    # Healthcheck (CRITICAL for stable startup)
+    healthcheck:
+      test: ["CMD", "bash", "-c", "kafka-topics.sh --bootstrap-server localhost:9092 --list"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+    restart: unless-stopped
+
+
+  producer:
+    build:
+      context: ..
+      dockerfile: ../services/producer/Dockerfile
+
+    # wait until Kafka is healthy
+    depends_on:
+      kafka:
+        condition: service_healthy
+
+    restart: unless-stopped
+
+
+  consumer:
+    build:
+      context: ..
+      dockerfile: ../services/consumer/Dockerfile
+
+    # wait until Kafka is healthy
+    depends_on:
+      kafka:
+        condition: service_healthy
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      SLACK_WEBHOOK_URL: "https://hooks.slack.com/services/XXX/YYY/ZZZ"
+      PAGERDUTY_ROUTING_KEY: "your-routing-key"
+      METRICS_PORT: "8000"
+
+    restart: unless-stopped
+
+
+  prometheus:
+    image: prom/prometheus
+
+    volumes:
+      - ../monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+
+    ports:
+      - "9090:9090"
+
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+
+    ports:
+      - "16686:16686"
+      - "4317:4317"
+
+
+  otel-collector:
+    image: otel/opentelemetry-collector:latest
+
+    command: ["--config=/etc/otel/config.yaml"]
+
+    volumes:
+      - ./otel-collector.yaml:/etc/otel/config.yaml
+
+    depends_on:
+      - jaeger

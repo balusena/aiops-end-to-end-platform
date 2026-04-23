@@ -1,0 +1,20 @@
+{
+  "title": "AIOps Dashboard",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Error Rate",
+      "targets": [{ "expr": "aiops_error_rate" }]
+    },
+    {
+      "type": "graph",
+      "title": "Events",
+      "targets": [{ "expr": "aiops_events_total" }]
+    },
+    {
+      "type": "graph",
+      "title": "Anomalies",
+      "targets": [{ "expr": "aiops_anomalies_total" }]
+    }
+  ]
+}

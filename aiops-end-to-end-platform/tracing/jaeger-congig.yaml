@@ -1,0 +1,7 @@
+service:
+  extensions: []
+  pipelines:
+    traces:
+      receivers: []
+      processors: []
+      exporters: []
