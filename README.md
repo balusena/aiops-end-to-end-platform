@@ -248,6 +248,12 @@ The following environment variables are used by the consumer service:
 
 ---
 
+## 📈 Producer sending events to kafka-broker and Consumer pulling those events and the ML-model processing and detecting anomalies from those event-stream.
+
+![Producer Consumer](./assets/producer_consumer.png)
+
+---
+
 ## 🧪 Future Improvements
 - Replace Isolation Forest with LSTM / Transformer-based anomaly detection
 - Add schema validation using Avro or Protobuf
